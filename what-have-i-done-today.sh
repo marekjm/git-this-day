@@ -9,8 +9,15 @@ fi
 
 GIT_THIS_DAY_PATH=/usr/local/lib/git-this-day
 
+GIT_THIS_DAY_WHITE="\033[1;37m"
+GIT_THIS_DAY_LIGHT_GREEN="\033[1;32m"
+GIT_THIS_DAY_RESET="\033[0m"
+export GIT_THIS_DAY_WHITE
+export GIT_THIS_DAY_LIGHT_GREEN
+export GIT_THIS_DAY_RESET
+
 STARTING_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-echo "[note] starting branch: $STARTING_BRANCH"
+echo -e "[$GIT_THIS_DAY_LIGHT_GREEN""note$GIT_THIS_DAY_RESET] starting branch: '$GIT_THIS_DAY_WHITE$STARTING_BRANCH$GIT_THIS_DAY_RESET'"
 
 echo -n '' > /tmp/git-this-day.txt
 
