@@ -1,6 +1,6 @@
 # This day in Git repository
 
-A script to extract a list of all recent commits from most recently pushed branches of a Git repository.
+A script to extract a list of all recent commits from most recently active branches of a Git repository.
 
 
 ----
