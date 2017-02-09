@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 if [[ $GIT_THIS_DAY_DEPTH == '' ]]; then
     GIT_THIS_DAY_DEPTH=40
 fi

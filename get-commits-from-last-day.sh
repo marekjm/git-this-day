@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 BRANCH=$1
 
 if [[ $GIT_THIS_DAY_USER_EMAIL == '' ]]; then
