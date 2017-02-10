@@ -2,8 +2,10 @@
 
 BRANCH=$1
 
-GIT_THIS_DAY_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+GIT_THIS_DAY_BRANCH=$BRANCH
 GIT_THIS_DAY_CLEAR=$(echo -n "$GIT_THIS_DAY_BRANCH" | sed 's/\n//' | sed 's/./ /g')
+
+git checkout $1 &> /dev/null
 
 echo -ne "analysing branch $GIT_THIS_DAY_WHITE$GIT_THIS_DAY_BRANCH$GIT_THIS_DAY_RESET"
 GIT_THIS_DAY_BRANCH_REPORT=$(git log --oneline --author "$GIT_THIS_DAY_USER_EMAIL" --since 16hours)
@@ -11,8 +13,6 @@ GIT_THIS_DAY_BRANCH_REPORT=$(git log --oneline --author "$GIT_THIS_DAY_USER_EMAI
 if [[ $GIT_THIS_DAY_USER_EMAIL == '' ]]; then
     GIT_THIS_DAY_USER_EMAIL=$(git config --get user.email)
 fi
-
-git checkout $1 &> /dev/null
 
 if [[ $GIT_THIS_DAY_BRANCH_REPORT != '' ]]; then
     echo '' >> /tmp/git-this-day.txt
